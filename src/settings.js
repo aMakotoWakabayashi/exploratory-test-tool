@@ -10,7 +10,6 @@ const rolls = {
     '男子児童':3,
     '女子児童':1
 }
-
 // ツアーの設定
 // ツアー名：重み付け、で設定可能
 const tours = {
@@ -19,11 +18,19 @@ const tours = {
     'レンタルした際の動作確認':2,
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':1
 }
-
-const background = {}
+// フォーム入力先の Google Form への URL
+const FORMURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform"
 
 export default class Settings extends React.Component {
+    
+    static background() {
+        return "hogehoge"
+    }
 
+    static form_url() {
+        return FORMURL
+    }
+   
     roll() {
         return this.pick(rolls)
     }

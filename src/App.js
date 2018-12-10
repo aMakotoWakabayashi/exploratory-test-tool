@@ -60,8 +60,7 @@ class App extends Component {
         var t = encodeURIComponent(time)
         var r = encodeURIComponent(roll)
         var o = encodeURIComponent(tour)
-
-        var url = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform?usp=pp_url&entry.2107535385=" + a + "&entry.233677277=" + t + "&entry.1423883222=" + r + "&entry.1853622759=" + o;
+        var url = Settings.form_url() + "?usp=pp_url&entry.2107535385=" + a + "&entry.233677277=" + t + "&entry.1423883222=" + r + "&entry.1853622759=" + o
         window.location.href = url;
     }
 
@@ -91,6 +90,7 @@ class App extends Component {
         return (
             <div className="App">
               <header className="App-header">
+                <h1 className="siimple-h1">探索的テスト支援ツール</h1>
                 <div>
                   <button className="siimple-btn siimple-btn--primary" onClick={this.ready_test}>探索的テストの準備</button>
                   <button className="siimple-btn siimple-btn--primary" onClick={this.start_test} ref={ button => {this.start_button = button} }>試験を開始する</button>
@@ -110,15 +110,21 @@ class App extends Component {
                 </div>
                 <div className="siimple-table-body">
                   <div className="siimple-table-row">
-                    <div className="siimple-table-cell">ロール</div>
+                    <div className="siimple-table-cell">Roll</div>
                     <div className="siimple-table-cell">どんなユーザーとしてテストをするか？</div>
                     <div className="siimple-table-cell">{this.state.roll}</div>
                   </div>
                   <div className="siimple-table-row">
-                    <div className="siimple-table-cell">ツアー</div>
+                    <div className="siimple-table-cell">Tour</div>
                     <div className="siimple-table-cell">どの部分のテストを実施したいか？</div>
                     <div className="siimple-table-cell">{this.state.tour}</div>
                   </div>
+                  <div className="siimple-table-row">
+                    <div className="siimple-table-cell">Background</div>
+                    <div className="siimple-table-cell">テストを実施するにあたって知っておくツアーの背景</div>
+                    <div className="siimple-table-cell">{Settings.background()}</div>
+                  </div>
+
                 </div>
                 <button className="siimple-btn siimple-btn--orange" onClick={this.reload}>チャーターを再生成</button>
               </div>
