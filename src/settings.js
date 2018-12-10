@@ -20,6 +20,8 @@ const tours = {
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':1
 }
 
+const background = {}
+
 export default class Settings extends React.Component {
 
     roll() {

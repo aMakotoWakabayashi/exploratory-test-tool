@@ -12,12 +12,14 @@ class App extends Component {
             appli:"",
             roll:"",
             tour:"",
+            backgroudn:""
         }
 
         this.start_test = this.start_test.bind(this)
         this.make_url = this.make_url.bind(this)
         this.get_roll = this.get_roll.bind(this)
         this.get_tour = this.get_tour.bind(this)
+        this.get_background = this.get_background.bind(this)
         this.ready_test = this.ready_test.bind(this)
         this.reload = this.reload.bind(this)
     }
@@ -35,6 +37,11 @@ class App extends Component {
     get_tour() {
         var s = new Settings()
         return s.tour()
+    }
+
+    get_background() {
+        var s = new Settings()
+        return s.background()
     }
 
     ready_test() {
