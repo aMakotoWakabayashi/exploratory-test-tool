@@ -56,11 +56,13 @@ class App extends Component {
         var time = this.computeDuration(testtime)
         var roll = this.state.roll
         var tour = this.state.tour
+        let day = `${finishtime.getFullYear()}-${finishtime.getMonth() + 1}-${finishtime.getDate()}`
         var a = encodeURIComponent(appli)
         var t = encodeURIComponent(time)
         var r = encodeURIComponent(roll)
         var o = encodeURIComponent(tour)
-        var url = Settings.form_url() + "?usp=pp_url&entry.2107535385=" + a + "&entry.233677277=" + t + "&entry.1423883222=" + r + "&entry.1853622759=" + o
+        let d = encodeURIComponent(day)
+        var url = Settings.form_url() + "?usp=pp_url&entry.2107535385=" + a + "&entry.233677277=" + t + "&entry.1423883222=" + r + "&entry.1853622759=" + o + "&entry.885077988=" + d
         window.location.href = url;
     }
 
@@ -117,12 +119,20 @@ class App extends Component {
                   <div className="siimple-table-row">
                     <div className="siimple-table-cell">Tour</div>
                     <div className="siimple-table-cell">どの部分のテストを実施したいか？</div>
-                    <div className="siimple-table-cell">{this.state.tour}</div>
+                    <div className="siimple-table-cell">
+                      <pre>
+                        {this.state.tour}
+                      </pre>
+                    </div>
                   </div>
                   <div className="siimple-table-row">
                     <div className="siimple-table-cell">Background</div>
                     <div className="siimple-table-cell">テストを実施するにあたって知っておくツアーの背景</div>
-                    <div className="siimple-table-cell">{Settings.background()}</div>
+                    <div className="siimple-table-cell siimple-content">
+                      <pre>
+            {Settings.background()}
+                      </pre>
+                    </div>
                   </div>
 
                 </div>
