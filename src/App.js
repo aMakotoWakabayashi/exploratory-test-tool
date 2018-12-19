@@ -3,7 +3,6 @@ import './App.css'
 import './siimple.min.css'
 import Settings from './settings.js'
 
-
 function ms_to_hms(ms){
     var h = String(Math.floor(ms / 3600000) + 100).substring(1);
     var m = String(Math.floor((ms - h * 3600000)/60000)+ 100).substring(1);
@@ -20,7 +19,7 @@ class App extends Component {
             appli:"",
             roll:"",
             tour:"",
-            backgroudn:"",
+            background:"",
             start_btn_text:START_BTN_VALUE,
             tid:0
         }
