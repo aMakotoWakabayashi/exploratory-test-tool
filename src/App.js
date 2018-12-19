@@ -3,8 +3,16 @@ import './App.css'
 import './siimple.min.css'
 import Settings from './settings.js'
 
+
+function ms_to_hms(ms){
+    var h = String(Math.floor(ms / 3600000) + 100).substring(1);
+    var m = String(Math.floor((ms - h * 3600000)/60000)+ 100).substring(1);
+    var s = String(Math.round((ms - h * 3600000 - m * 60000)/1000)+ 100).substring(1);
+    return h+':'+m+':'+s;
+}
+const START_BTN_VALUE = "試験を開始する"
+
 class App extends Component {
-    
     constructor(props, context){
         super(props, context)
         this.state = {
@@ -12,7 +20,9 @@ class App extends Component {
             appli:"",
             roll:"",
             tour:"",
-            backgroudn:""
+            backgroudn:"",
+            start_btn_text:START_BTN_VALUE,
+            tid:0
         }
 
         this.start_test = this.start_test.bind(this)
@@ -45,15 +55,18 @@ class App extends Component {
     }
 
     ready_test() {
+        clearInterval(this.tid)
         this.start_button.className = "siimple-btn siimple-btn--primary"
-        this.starttime = 0
+        this.setState({starttime:0})
+        this.setState({start_btn_text:START_BTN_VALUE})
     }
 
-    make_url() {      
+    make_url() {
+        clearInterval(this.tid)
         var appli = ""
-        var finishtime = new Date()
+        let finishtime = new Date()
         var testtime = finishtime - this.starttime
-        var time = this.computeDuration(testtime)
+        let time = ms_to_hms(testtime)
         var roll = this.state.roll
         var tour = this.state.tour
         let day = `${finishtime.getFullYear()}-${finishtime.getMonth() + 1}-${finishtime.getDate()}`
@@ -73,14 +86,14 @@ class App extends Component {
 
         var t = new Date();
         this.starttime = t
+        this.setState({starttime:t})
         this.start_button.className = "siimple-btn siimple-btn--primary siimple-btn--disabled";
-    }
-
-    computeDuration(ms){
-        var h = String(Math.floor(ms / 3600000) + 100).substring(1);
-        var m = String(Math.floor((ms - h * 3600000)/60000)+ 100).substring(1);
-        var s = String(Math.round((ms - h * 3600000 - m * 60000)/1000)+ 100).substring(1);
-        return h+':'+m+':'+s;
+        let p = this
+        this.tid = setInterval(function(){
+            let n = new Date()
+            let testtime = n - p.state.starttime
+            p.setState({start_btn_text:ms_to_hms(testtime)})
+        }, 1000, p)
     }
 
     reload() {
@@ -94,9 +107,10 @@ class App extends Component {
               <header className="App-header">
                 <h1 className="siimple-h1">探索的テスト支援ツール</h1>
                 <div>
-                  <button className="siimple-btn siimple-btn--primary" onClick={this.ready_test}>探索的テストの準備</button>
-                  <button className="siimple-btn siimple-btn--primary" onClick={this.start_test} ref={ button => {this.start_button = button} }>試験を開始する</button>
-                  <button className="siimple-btn siimple-btn--primary" onClick={this.make_url}>結果を報告する</button>
+                  <button className="siimple-btn siimple-btn--primary" onClick={this.ready_test}>リセット</button>
+                  <button className="siimple-btn siimple-btn--primary" onClick={this.start_test} ref={ button => {this.start_button = button} }>{this.state.start_btn_text}</button>
+
+                  <button className="siimple-btn siimple-btn--success" onClick={this.make_url}>結果を報告する</button>
                   
                 </div>
               </header>
