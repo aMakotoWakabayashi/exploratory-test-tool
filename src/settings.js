@@ -20,12 +20,12 @@ const tours = {
     'ビューアー':0,
     'レンタルした際の動作確認':0,
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':0,
-    'ワンピースリリース前動作確認':10
+    'ナルトリリース前動作確認':10
 }
 
 // バックグラウンドの設定
 // 試験するアプリで知っておくべき情報などを記載。
-const background = "https://acsmine.tok.access-company.com/redmine/versions/5498"
+const background = "https://acsmine.tok.access-company.com/redmine/versions/5506"
 
 // フォーム入力先の Google Form への URL
 const FORMURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform"
