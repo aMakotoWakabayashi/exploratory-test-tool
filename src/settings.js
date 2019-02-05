@@ -15,17 +15,16 @@ const rolls = {
 // ツアー名：重み付け、で設定可能
 // 0 にするとその項目は選ばれない。
 const tours = {
-    '各種コイン取得イベント(じゃんけん、コイン残高0での無料動画再生)のリセット。\n端末時間を変更してのTOP画面の表示の確認。\nTOP画面からのビューアー起動。コインを贈答してのコンテンツ閲覧、購入。':0,
     'ビューアーの広告表示':0,
     'ビューアー':0,
     'レンタルした際の動作確認':0,
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':0,
-    'トップ画面の並び替えが指定した sort_code 通りになっているかどうか。':10
+    'アプリ起動時、動画再生':10
 }
 
 // バックグラウンドの設定
 // 試験するアプリで知っておくべき情報などを記載。
-const background = "https://acsmine.tok.access-company.com/redmine/issues/166916"
+const background = "https://acsmine.tok.access-company.com/redmine/versions/5650"
 
 // フォーム入力先の Google Form への URL
 const FORMURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform"
