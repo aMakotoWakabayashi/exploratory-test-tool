@@ -19,12 +19,12 @@ const tours = {
     'ビューアー':0,
     'レンタルした際の動作確認':0,
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':0,
-    'ログイン周り、端末表示(特に表示サイズ)、画像リソース':10
+    'ダンダン無料':10
 }
 
 // バックグラウンドの設定
 // 試験するアプリで知っておくべき情報などを記載。
-const background = "https://redmine-access-company.herokuapp.com/issues/55187"
+const background = "https://acsmine.tok.access-company.com/redmine/issues/173000"
 
 // フォーム入力先の Google Form への URL
 const FORMURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform"
