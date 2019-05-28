@@ -19,12 +19,12 @@ const tours = {
     'ビューアー':0,
     'レンタルした際の動作確認':0,
     'チュートリアルをみながらアプリがそのとおりに動作しているかどうか':0,
-    'TOP画面の一覧画面の操作・表示':10
+    '購入コインのみ対応、ルーキー２マス化表示、コメント数表示':10
 }
 
 // バックグラウンドの設定
 // 試験するアプリで知っておくべき情報などを記載。
-const background = "https://redmine-access-company.herokuapp.com/issues/55187"
+const background = "https://acsmine.tok.access-company.com/redmine/versions/5926 (Android)"
 
 // フォーム入力先の Google Form への URL
 const FORMURL = "https://docs.google.com/forms/d/e/1FAIpQLSfYAQA81O9-Rly-OOMmpwM4Mt7MB5OVbhcEjE3_dSjGJH3EYg/viewform"
